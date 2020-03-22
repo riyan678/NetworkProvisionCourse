@@ -1,0 +1,19 @@
+Cisco Plug in Play (PnP)
+**highly scalable and secure provision solution
+**a feature of dna center
+** can identify the intial configurations and network os images
+** clients use dhcp server to find dna center instances
+** does not require option 60 and 61
+** device to config mapping occurs centrally on dna center
+** uses workflows then claim a device as apart of that work flow
+
+Core PnP Components
+1. ip connectivity between client and dna center
+
+2. client has pnp agent running at boot time
+
+3. pnp agent will connect to pnp server (dna center)
+  The pnp protocol is used for this connection
+  xml over http rpc messages
+
+How Cisco PnP Works 

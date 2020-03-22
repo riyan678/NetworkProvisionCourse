@@ -1,0 +1,24 @@
+Zero Touch Provisioning (ZTP)
+**used to boot devices with os installed already
+**network based intial configuration
+**can use to perform the intial configuration
+**depending on design can include full connectivity to the network
+**in other cases it maybe just an out of band connection
+**Similar to Ipxe in that it uses dhcp to get ip address and file transfer to download a file,
+  execept uses a python script
+**in the event of a python script, the client download script and run it locally
+**modern ios devices has an guestshell IOx container
+
+How ztp Works
+1. client send dhcp request
+   option 60 and 61 are set
+
+2. dhcp offer is sent from dhcp server with tftp
+  opt 150: 203.0.113.1
+  opt 67: ztp.py
+
+3. client gets ip address and send read request to tftp server
+
+4. client download the file and rename it to downloaded_script.py
+
+5. the client then enable guestshell and runs the script

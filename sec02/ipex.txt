@@ -1,0 +1,23 @@
+Preboot Execution Environment (iPXE)
+**allows for network based booting
+**can be configure from rommon shell/network os
+**uses dhcp to get an ip address first
+  **can then download load image file via tftp/ftp/http
+
+How iPXE Works
+1. client send dhcp request to dhcp server
+  ** ONE OR Both of these options can be set
+  ** option 60 should be set to (vendor): ciscopnp
+  ** option 61 should be set to (device sn): 9G7LDZKE6F4
+
+2. The dhcp server will send an offer
+  ** next-server (siaddr): 203.0.113.1 # this filled contains the ip address of the tftp server
+  ** bootfile (file): nos.bin # this filled contains the name of the file
+     Note: the bootfile filled can also supply a full url in the boot file string to include 
+           method and filename if you are using http or ftp ex: (bootfile: http://203.0.113.1/nos.bin)
+
+3. client get info from dchp server and then send read request to tftp server for nos.bin
+
+4. tftp file is downloaded to the client from server
+
+5. When download is complete the client will begin to boot from the downloaded image
