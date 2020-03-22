@@ -17,3 +17,17 @@ Core PnP Components
   xml over http rpc messages
 
 How Cisco PnP Works 
+1. Client send dhcp discover
+
+2. dhcp server sends offer with option dnac ip
+   ** opt 43 198.51.100.42
+   ** If opt 43 is omitted and domain name is specified
+      will try to find the sever via dns instead
+   **(domain name: lctcs.edu)
+   **(agent will query pnpserver.lctcs.edu)
+
+3. client gets ip address and sen http post/pnp/work request to dnac
+
+4. dnac will respond with and http response + network os, config file, or both
+
+5. device are added to dnac inventory automatically during this process
